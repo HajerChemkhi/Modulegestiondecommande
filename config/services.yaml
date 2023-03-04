@@ -22,3 +22,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+parameters:
+    stripe_secret_key: 'sk_test_51MgczTDojyXyOxi1rvhHGgzVXqSlfNYysQIoWaPrg10hFHRx1pWxi4LWm2EwT3vAUoixnIiFsbs24yNjrob5KlgM00NmD3qoLh'
+    stripe_public_key: 'pk_test_51MgczTDojyXyOxi11x8SN0dAi8CoKVNmPlyEGwWrLFOZuIUA3MI3QiWfN6Fm3LZlWhrPIB8qE5fLK2at22PTCG1i00U0gKAzRK'

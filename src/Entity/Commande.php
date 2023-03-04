@@ -6,6 +6,9 @@ use App\Repository\CommandeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Range;
+
+
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
@@ -21,19 +24,33 @@ class Commande
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateLivraison = null;
-
+    #[Assert\NotBlank(message:"total is required")]
     #[ORM\Column]
+   
+    #[Range(
+        min: 0.0,
+        max: 100000.0,
+        notInRangeMessage: "La total doit être compris entre {{ min }} et {{ max }}.",
+        invalidMessage: "Veuillez saisir un nombre décimal valide pour la total."
+    )]
     private ?float $total = null;
 
+    #[Assert\NotBlank(message:"prixLivraison is required")]
+    
     #[ORM\Column]
+    #[Range(
+        min: 0.0,
+        max: 100000.0,
+        notInRangeMessage: "Le prix de livraison doit être compris entre {{ min }} et {{ max }}.",
+        invalidMessage: "Veuillez saisir un nombre décimal valide pour le prix de livraison."
+    )]
     private ?float $prixLivraison = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commandes')]
-    #[Assert\NotBlank(message:"etatcommande is required")]
-
-
+    #[ORM\ManyToOne(inversedBy: 'commandes')
     
-
+    
+    ]
+    #[Assert\NotBlank(message:"etatCommande is required")]
     private ?EtatCommande $etatCommande = null;
 
     public function getId(): ?int

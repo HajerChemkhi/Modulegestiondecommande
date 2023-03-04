@@ -1,0 +1,3 @@
+stripe:
+    public_key: VOTRE_CLE_PUBLIQUE_STRIPE
+    secret_key: VOTRE_CLE_SECRETE_STRIPE
