@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+
+ <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top :150px">
+ <div class="col-lg-7">
+ <div class="card">
+ <div class="card-body">
+ <h5 class="card-title"> Liste etat commande </h5>
+
+ <table class="table table-striped">
+ <thead>
+  <tr>
+ <th>ID</th>
+ <th>type </th>
+
+ <th>suppression</th>
+ <th>Modifier</th>
+
+ </tr>
+ </thead>
+ {% for c in type %}
+ <tr>
+
+ <td> {{c.id}}  </td>
+  <td> {{c.type}} </td>
+ 
+
+ 
+
+
+
+ <td><a href="{{path('supprimer',{'id':c.id} )}}">Delete</a></td>  
+ <td><a href="{{path('modifier',{'id':c.id} )}}">update</a></td>  
+
+ </tr>
+ {% endfor %}
+</tbody>
+  </table>
+
+    <a href="{{path('ajouter')}}">ajouter type : </a>
+   </div>
+    </div>
+
+
+
+ {% endblock %}

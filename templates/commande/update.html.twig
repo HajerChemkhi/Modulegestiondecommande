@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+<div style="display: flex;align-items: center;justify-content: center;margin-top :140px" >
+
+          <div class="card">
+            <div class="card-body">
+            <div class="card">
+            <div class="card-body">
+ <table class="table table-bubble"   >
+              <h5 class="card-title">Modifier commande :</h5>
+
+              <!-- General Form Elements -->
+
+            
+
+              {{ form_start(f) }}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-7 col-form-label">Date commande </label>
+                  <div class="col-sm-10">
+              {{ form_widget(f.dateCommande,{'attr': {'class':'form-control'}}) }}
+                  </div>
+                </div>
+                
+                
+             {{ form_start(f) }}
+                <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-7 col-form-label">Date livraison</label>
+                  <div class="col-sm-10">
+              {{ form_widget(f.dateLivraison  ,{'attr': {'class':'form-control'}}) }}
+                  </div>
+                </div>
+                
+
+            
+             
+
+                   {{ form_start(f) }}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-7 col-form-label">Prix livraison  </label>
+                  <div class="col-sm-10">
+              {{ form_widget(f.prixLivraison,{'attr': {'class':'form-control'}}) }}
+                  </div>
+                </div>
+
+
+         {{ form_start(f) }}
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-7 col-form-label">total </label>
+                  <div class="col-sm-10">
+              {{ form_widget(f.total ,{'attr': {'class':'form-control'}}) }}
+                  </div>
+                </div>
+
+  
+                   {{ form_start(f) }}
+                
+                  <div class="col-sm-10">
+              {{ form_widget(f.modifier,{'attr': {'class':'btn btn-primaryl'}}) }}
+                  </div>
+                </div> 
+
+                {{form_end(f) }}
+
+
+
+              
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+
+        </div>
+
+{% endblock %}

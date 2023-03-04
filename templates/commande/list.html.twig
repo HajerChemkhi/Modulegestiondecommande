@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+
+ <div class="row" style="display: flex;align-items: center;justify-content: center;margin-top :150px">
+ <div class="col-lg-7">
+ <div class="card">
+ <div class="card-body">
+ <h5 class="card-title"> Liste commande </h5>
+
+ <table class="table table-striped">
+ <thead>
+  <tr>
+ <th>ID</th>
+  <th>Etat commande </th>
+ <th>Date commande </th>
+ <th>Date livraison</th>
+ <th>Prix livraison </th>
+ <th>Total </th>
+ <th>suppression</th>
+ <th>Modifier</th>
+
+ </tr>
+ </thead>
+ {% for c in commande %}
+ <tr>
+ <td> {{c.id}}  </td>
+ <td> {{c.etatCommande.type}}  </td>
+ 
+
+ <td> {{c.dateCommande|date('Y-m-d H:i:s')}} </td>
+ <td> {{c.dateLivraison|date('Y-m-d H:i:s')}} </td>
+  <td> {{c.prixLivraison}} </td>
+  <td> {{c.total}} </td>
+
+ 
+
+
+
+ <td><a href="{{path('s',{'id':c.id} )}}">Delete</a></td>  
+ <td><a href="{{path('u',{'id':c.id} )}}">update</a></td>  
+
+ </tr>
+ {% endfor %}
+</tbody>
+  </table>
+
+    <a href="{{path('a')}}">ajouter commande : </a>
+   </div>
+    </div>
+
+
+
+ {% endblock %}
